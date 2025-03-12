@@ -9,8 +9,8 @@ library(tidyverse)
 # many of those prey were mesopelagic or coastal pelagic fish species?
 
 sea_lion <- cctd_meso[cctd_meso$predator_id == 99112, ]
-nrow(sea_lion[sea_lion$meso_prey == TRUE, ]) # 1 mesopelagic pray
-nrow(sea_lion[sea_lion$cpf_prey == TRUE, ]) # 3 coastal pray
+sum(sea_lion$meso_prey) # 1 mesopelagic pray
+sum(sea_lion$cpf_prey) # 3 coastal pray
 
 # P2 Summarize cctd_meso at the predator level (i.e., each row in the summary
 # should represent one predator), indicating whether the predator’s diet sample
@@ -108,7 +108,7 @@ sd(dosidicus_fo) # 0.0149
 # P12 How frequently did Histioteuthidae mesopelagic FO fall outside the range
 # 0.45 - 0.65? How about Dosidicus gigas?
 sum(histioteuthidae_fo < 0.45 | histioteuthidae_fo > 0.65)/1000 # 0.178
-sum(dosidicus_fo < 0.45 | histioteuthidae_fo > 0.65)/1000 # 0.097
+sum(dosidicus_fo < 0.45 | dosidicus_fo > 0.65)/1000 # 0
 
 # P13 Based on your answers to P10-P12, what effect does sample size have on
 # sample accuracy?
